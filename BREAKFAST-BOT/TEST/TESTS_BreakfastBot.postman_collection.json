@@ -1,0 +1,3010 @@
+{
+	"info": {
+		"_postman_id": "6196388f-a753-4685-9229-44ea59ae9e38",
+		"name": "BreakfastBot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "MAIN",
+			"description": "",
+			"item": [
+				{
+					"name": "make me a tea",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d234c7b8-4c09-458b-b220-2025a1513845",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeTea';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6a633296-b61a-4c80-92e5-c29b5fe8f9af",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"make me a tea\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "I would like tea",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24b47751-26e0-4b54-ab52-681049a581f3",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeTea';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c8e5c237-8543-4527-b605-260b76c58645",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I would like tea\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tea please",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24b47751-26e0-4b54-ab52-681049a581f3",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeTea';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c8e5c237-8543-4527-b605-260b76c58645",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"Tea please\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "I'd like tea",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24b47751-26e0-4b54-ab52-681049a581f3",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeTea';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c8e5c237-8543-4527-b605-260b76c58645",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I'd like tea\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "I would like some tea",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "51d33f5a-944e-4985-97d5-8a164227a5ff",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeTea';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "67d3c156-db6f-421e-9722-0e8e5d57185e",
+								"type": "text/javascript",
+								"exec": [
+									"let user = Math.floor(Math.random() * 10000);",
+									"let session = Math.floor(Math.random() * 10000);",
+									"",
+									"pm.globals.set(\"userId\", user);",
+									"pm.globals.set(\"sessionId\", session);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I would like some tea\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "brew me up a coffee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "06882c57-7316-4d02-972e-55e1d281f568",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeCoffee';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4024407a-a628-491a-943a-9d5cc9170889",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"brew me up a coffee\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get me a coffee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "06882c57-7316-4d02-972e-55e1d281f568",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeCoffee';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4024407a-a628-491a-943a-9d5cc9170889",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"get me a coffee\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "make me coffee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "06882c57-7316-4d02-972e-55e1d281f568",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeCoffee';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4024407a-a628-491a-943a-9d5cc9170889",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"make me coffee\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Please bring me some coffee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "06882c57-7316-4d02-972e-55e1d281f568",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeCoffee';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4024407a-a628-491a-943a-9d5cc9170889",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"Please bring me some coffee\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "I'd like some toast",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9ca5bcaf-e1b9-4222-9cc3-bcb62c932b14",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeToast';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "77978e34-3f4c-4702-83e1-f781102ba499",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I'd like some toast\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "I'll have toast",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9ca5bcaf-e1b9-4222-9cc3-bcb62c932b14",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeToast';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "77978e34-3f4c-4702-83e1-f781102ba499",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I'll have toast\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "I would love some toast with butter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9ca5bcaf-e1b9-4222-9cc3-bcb62c932b14",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeToast';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "77978e34-3f4c-4702-83e1-f781102ba499",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I would love some toast with butter\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Please make me some toast",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1fdd5092-e7c7-4a61-87d1-c542822ee1d7",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeToast';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "77978e34-3f4c-4702-83e1-f781102ba499",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"Please make me some toast\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "I'd like some breakfast",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "22eac155-bc3b-4fd8-a4d7-8d6f1a03065f",
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['Expected no Intent to be hit. Actual: ' +jsonData.intentName] ",
+									"= jsonData.dialogState === \"ElicitIntent\";",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "51cbaf2d-cbd0-45a2-ac41-8dc05bbefa16",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I'd like some breakfast\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "What is the weather like?",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "22eac155-bc3b-4fd8-a4d7-8d6f1a03065f",
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['Expected no Intent to be hit. Actual: ' +jsonData.intentName] ",
+									"= jsonData.dialogState === \"ElicitIntent\";",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "51cbaf2d-cbd0-45a2-ac41-8dc05bbefa16",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"What is the weather like?\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get me a newspaper",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "22eac155-bc3b-4fd8-a4d7-8d6f1a03065f",
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['Expected no Intent to be hit. Actual: ' +jsonData.intentName] ",
+									"= jsonData.dialogState === \"ElicitIntent\";",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "51cbaf2d-cbd0-45a2-ac41-8dc05bbefa16",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"Get me a newspaper\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tell me a joke",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "22eac155-bc3b-4fd8-a4d7-8d6f1a03065f",
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['Expected no Intent to be hit. Actual: ' +jsonData.intentName] ",
+									"= jsonData.dialogState === \"ElicitIntent\";",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "51cbaf2d-cbd0-45a2-ac41-8dc05bbefa16",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"Tell me a joke\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make me tea",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24b47751-26e0-4b54-ab52-681049a581f3",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeTea';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c8e5c237-8543-4527-b605-260b76c58645",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"Make me tea\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SPELLING ERRORS",
+			"description": "",
+			"item": [
+				{
+					"name": "I would like tee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24b47751-26e0-4b54-ab52-681049a581f3",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeTea';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c8e5c237-8543-4527-b605-260b76c58645",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I would like tee\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "I'd like tee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24b47751-26e0-4b54-ab52-681049a581f3",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeTea';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c8e5c237-8543-4527-b605-260b76c58645",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I'd like tee\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "make me a tee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d234c7b8-4c09-458b-b220-2025a1513845",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeTea';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "997811bd-9224-4630-8e92-ad12d350fd91",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"make me a tee\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get me a coffeee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "06882c57-7316-4d02-972e-55e1d281f568",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeCoffee';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "85e8ce03-8bd0-4d44-b7ae-017aeae32624",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"get me a coffeee\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "I'll have tost",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9ca5bcaf-e1b9-4222-9cc3-bcb62c932b14",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeToast';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "77978e34-3f4c-4702-83e1-f781102ba499",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I'll have tost\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "I need tost",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9ca5bcaf-e1b9-4222-9cc3-bcb62c932b14",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeToast';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "77978e34-3f4c-4702-83e1-f781102ba499",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I need tost\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tost me some bread",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9ca5bcaf-e1b9-4222-9cc3-bcb62c932b14",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeToast';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "77978e34-3f4c-4702-83e1-f781102ba499",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": Tost me some bread\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "XTRA",
+			"description": "",
+			"item": [
+				{
+					"name": "I would like some tea and toast",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8474a764-37fa-4443-a695-8aa3f5c9f9fc",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = '????';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e5fcdafd-b6d1-4e66-a0af-febda17f89b0",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I would like some tea and toast\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "I'd like some tea and toast",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8474a764-37fa-4443-a695-8aa3f5c9f9fc",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = '????';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e5fcdafd-b6d1-4e66-a0af-febda17f89b0",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I'd like some tea and toast\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "I'd like a cuppa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24b47751-26e0-4b54-ab52-681049a581f3",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeTea';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "db6a6854-bee4-490b-a292-0489eef45a33",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I'd like a cuppa\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "I need a cuppa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24b47751-26e0-4b54-ab52-681049a581f3",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeTea';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "db6a6854-bee4-490b-a292-0489eef45a33",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I need a cuppa\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "I would like a cuppa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24b47751-26e0-4b54-ab52-681049a581f3",
+								"type": "text/javascript",
+								"exec": [
+									"let expectedIntent = 'MakeTea';",
+									"",
+									"let jsonData = JSON.parse(responseBody);",
+									"tests['IntentName - Expected: ' +expectedIntent +', Actual: ' +jsonData.intentName] ",
+									"= jsonData.intentName === expectedIntent;",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "db6a6854-bee4-490b-a292-0489eef45a33",
+								"type": "text/javascript",
+								"exec": [
+									"let id = Math.floor(Math.random() * 100000);",
+									"pm.globals.set(\"userId\", id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4",
+							"awsv4": [
+								{
+									"key": "accessKey",
+									"value": "{{access_key}}",
+									"type": "string"
+								},
+								{
+									"key": "secretKey",
+									"value": "{{secret_key}}",
+									"type": "string"
+								},
+								{
+									"key": "region",
+									"value": "us-east-1",
+									"type": "string"
+								},
+								{
+									"key": "service",
+									"value": "lex",
+									"type": "string"
+								},
+								{
+									"key": "saveToRequest",
+									"value": true,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20170928T083637Z"
+							},
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"inputText\": \"I would like a cuppa\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "{{resource_name}}/bot/{{bot_name}}/alias/{{bot_alias_name}}/user/{{userId}}/text",
+							"host": [
+								"{{resource_name}}"
+							],
+							"path": [
+								"bot",
+								"{{bot_name}}",
+								"alias",
+								"{{bot_alias_name}}",
+								"user",
+								"{{userId}}",
+								"text"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5b22f56d-b5ae-4f60-b89e-bffbe685021f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7023bd4f-1f53-478b-b5e2-e094af1533c5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
