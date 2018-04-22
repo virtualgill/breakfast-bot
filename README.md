@@ -2,7 +2,7 @@
 Demo files for Amazon Lex showing challenges with Natural Language Understanding
 
 # Important
-This bot is designed to show a not very good bot that was used as part of a presentation demo on the limitations of natural language understanding. 
+This bot is designed to show a not very good bot that was used as part of a presentation demo on the limitations of natural language understanding. The slides for this presentation are here: https://speakerdeck.com/virtualgill/natural-language-mis-understanding
 
 It lacks proper purpose and has deliberately haphard utterances. It is not hooked up to any fulfilments.
 
